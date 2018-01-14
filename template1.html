@@ -81,13 +81,14 @@
       },
       methods: {
         addNewAdditional: function () {
+          $('.remove').hide()
           this.additionals.push(Vue.util.extend({}, this.additional))
         },
         removeAdditional: function (index) {
           Vue.delete(this.additionals, index);
         },
         editAdditional: function(){
-          $('.remove').show()
+          $('.remove').toggle()
         }
       }
      })
