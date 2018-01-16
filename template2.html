@@ -17,6 +17,7 @@
                   <div>
                     <h3 class="headline mb-0" style="align:center">{{item.title}}</h3>
                   </div>
+                  <div v-if="item.imageLink !=''"> <img v-bind:src="item.imageLink"  width="40" height="32" style="float:left; border:none" /></div>
                 </v-card-title>
                 <v-card-text>
                   <ul style="list-style-type:none">
@@ -46,22 +47,27 @@
           {
             title:'Basic',
             description:["Statement 1","Statement 2","Statement 3","Statement 4"],
-            price:'$10'
+            price:'$10',
+            imageLink:''
+
           },
           {
             title:'Standard',
             description:["Statement 1","Statement 2","Statement 3","Statement 4"],
-            price:'$20'
+            price:'$20',
+            imageLink:''
           },
           {
             title:'Premium',
             description:["Statement 1","Statement 2","Statement 3","Statement 4"],
-            price:'$30'
+            price:'$30',
+            imageLink:''
           },
           {
             title:'Enterprise',
             description:["Statement 1","Statement 2","Statement 3","Statement 4"],
-            price:'Contact'
+            price:'Contact',
+            imageLink:'https://d30y9cdsu7xlg0.cloudfront.net/png/1199-200.png'
           }
         ]
       }
