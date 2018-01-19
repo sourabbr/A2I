@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .bg{
+      background-image: url("http://shabier.com/images/background-nature-wallpapers/background-nature-wallpapers-17.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .toolbar_opacity{
+      opacity: 0.3;
+    }
+    .main-text{
+      font-size: 50px;
+    }
+    #canvas{
+      padding: 200px 20px;
+      text-align: center;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app dark>
+      <template>
+        <div class="bg">
+          <div>
+            <v-toolbar color="transparent">
+              <v-toolbar-title><span class="group pa-2">
+        <v-icon medium>home</v-icon></span>Company Name</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-toolbar-items>
+                <div>
+                  <v-btn color="blue darken-2" large>Talk to an expert</v-btn>
+                </div>
+                <div>
+                  <v-btn color="blue darken-2" large>Sign Up</v-btn>
+                </div>
+              </v-toolbar-items>
+            </v-toolbar>
+            <v-container>
+              <div id="canvas">
+                <p class="main-text">Hello there! Lets get started</p>
+                <v-btn color="blue darken-2" large>click</v-btn>
+              </div>
+            </v-container>
+          </div>
+        </div>
+      </template>
+    </v-app>
+  </div>
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+
+      }
+
+     })
+  </script>
+</body>
+</html>
