@@ -45,46 +45,54 @@
                   <v-layout row wrap>
                     <v-flex lg12>
                       <v-text-field
+                        v-model="credit_card.number"
                         label="CREDIT CARD NUMBER"
                         placeholder="xxxx xxxx xxxx xxxx"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg2>
                       <v-text-field
+                        v-model="credit_card.expire_month"
                         label="EXPIRES"
                         placeholder="MM"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg3 offset-lg1>
                       <v-text-field
+                        v-model="credit_card.expire_year"
                         label=""
                         placeholder="YYYY"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg2 offset-lg1>
                       <v-text-field
+                        v-model="credit_card.cvv"
                         label="CVV"
                          placeholder="***"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg12>
                       <v-text-field
+                        v-model="credit_card.card_holder_name"
                         label="CARD HOLDER NAME"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg7>
                       <v-text-field
+                        v-model="credit_card.street_address"
                         label="STREET ADDRESS"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg4 offset-lg1>
                       <v-text-field
+                        v-model="credit_card.zip_code"
                         label="ZIP CODE"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg12>
                       <v-select
                         light
+                        v-model="credit_card.country"
                         v-bind:items="country"
                         label="COUNTRY"
                         autocomplete
@@ -92,17 +100,64 @@
                     </v-flex>
                     <v-flex lg7>
                       <v-text-field
+                        v-model="credit_card.company_project_url"
                         label="COMPANY/PROJECT URL"
                       ></v-text-field>
                     </v-flex>
                     <v-flex lg4 offset-lg1>
                       <v-text-field
+                        v-model="credit_card.phone_number"
                         label="PHONE NUMBER"
                       ></v-text-field>
                     </v-flex>
                   </v-layout>
                 </v-card-text>
               </v-card>
+            </v-flex>
+          </v-layout>
+          <br>
+          <p class="mt-2 mb-0 sub-headings"><b>Step 3: </b>Add funds</p>
+          <hr>
+          <br>
+          <v-layout row>
+            <v-flex lg8 offset-lg2>
+              <v-card>
+                <v-card-text row>
+                  <v-layout row wrap>
+                    <v-flex lg12>
+                      <v-select
+                        light
+                        v-bind:items="recharge"
+                        label="AMOUNT TO ADD TO YOUR ACCOUNT NOW"
+                        autocomplete
+                      ></v-select>
+                    </v-flex>
+                  </v-layout>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          <br>
+          <v-layout row>
+            <v-flex lg8 offset-lg2>
+              <v-card>
+                <v-card-text row>
+                  <v-layout row wrap>
+                    <v-flex lg12>
+                      <v-checkbox
+                        label="Turn on automatic recharge"
+                        v-model="checkbox"
+                      ></v-checkbox>
+                    </v-flex>
+                  </v-layout>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          <br>
+          <v-layout row>
+            <v-flex lg4 offset-lg5>
+              <v-btn color="info" style="align:center" @click="submit_details">Submit</v-btn>
             </v-flex>
           </v-layout>
 
@@ -121,8 +176,25 @@
       data() {
         return {
           al: null,
+          checkbox:false,
           country: ['India','USA','England'],
-          recharge: ["$10", "$20", "$30", "$40", "$50"]
+          recharge: ["$10", "$20", "$30", "$40", "$50"],
+          credit_card:{
+            number:'',
+            expire_month:'',
+            expire_year:'',
+            cvv:'',
+            card_holder_name:'',
+            street_address:'',
+            zip_code:'',
+            country: '',
+            company_project_url:'',
+            phone_number:''
+          }
+        }
+      },
+      methods:{
+        submit_details:function(){
         }
       }
     })
