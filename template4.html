@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <template>
+        <v-container>
+          <h1><b>Upgrade Account<b></h1>
+          </br>
+          <v-flex lg12>
+          <p><b>Step 1<b>: Verify a Caller ID</p>
+          </v-flex>
+          <v-flex offset-lg5>
+          <p>You've verified 12345678</p>
+          </v-flex>
+        </br>
+        <v-flex>
+          <p>Step 2: Enter your payment information</p>
+        </v-flex>
+        <v-flex>
+            <v-subheader v-text="'Methods'"></v-subheader>
+        </v-flex>
+        <v-flex lg8 offset-lg3>
+            <v-radio-group row>
+              <v-radio label="Credit Card" value="Credit Card" ></v-radio>
+              <v-radio label="PayPal" value="PayPal"></v-radio>
+              <v-radio label="Stripe" value="Stripe"></v-radio>
+            </v-radio-group>
+          </v-flex>
+          <v-flex lg8 offset-lg2>
+            <v-card>
+              <v-card-text row>
+                <v-flex lg4>
+                  <v-text-field
+                    label="First name"
+                  ></v-text-field>
+                  <v-text-field
+                    label="Last name"
+                  ></v-text-field>
+                </v-flex>
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </br>
+        <v-flex>
+          <p>Step 3: Add funds</p>
+        </v-flex>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-card>
+            <v-card-text>
+              <p style="color:grey">AMOUNT TO ADD TO YOUR ACCOUNT NOW</P>
+              <v-flex>
+                <v-select
+                  light
+                  v-bind:items="recharge"
+                  v-model="a1"
+                  label=""
+                  autocomplete
+                ></v-select>
+             </v-flex>
+             <v-card color="grey lighten-2">
+               <v-card-text>
+                 <v-flex>
+                  <v-checkbox value="right" label="Turn on automatic recharging"></v-checkbox>
+                 </v-flex>
+                 <p>When your balance falls below $10.00, we will recharge your balance to $20</p>
+               </v-card-text>
+             </v-card>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="primary">Upgrade Account</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+        </v-container>
+      </template>
+    </v-app>
+  </div>
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          al: null,
+          recharge: ["$10", "$20", "$30", "$40", "$50"]
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
