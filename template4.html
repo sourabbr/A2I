@@ -5,6 +5,14 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .sub-headings{
+      font-size: 18px;
+    }
+    p{
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,73 +20,92 @@
     <v-app>
       <template>
         <v-container>
-          <h1><b>Upgrade Account<b></h1>
-          </br>
-          <v-flex lg12>
-          <p><b>Step 1<b>: Verify a Caller ID</p>
-          </v-flex>
-          <v-flex offset-lg5>
-          <p>You've verified 12345678</p>
-          </v-flex>
-        </br>
-        <v-flex>
-          <p>Step 2: Enter your payment information</p>
-        </v-flex>
-        <v-flex>
-            <v-subheader v-text="'Methods'"></v-subheader>
-        </v-flex>
-        <v-flex lg8 offset-lg3>
-            <v-radio-group row>
-              <v-radio label="Credit Card" value="Credit Card" ></v-radio>
-              <v-radio label="PayPal" value="PayPal"></v-radio>
-              <v-radio label="Stripe" value="Stripe"></v-radio>
-            </v-radio-group>
-          </v-flex>
-          <v-flex lg8 offset-lg2>
-            <v-card>
-              <v-card-text row>
-                <v-flex lg4>
-                  <v-text-field
-                    label="First name"
-                  ></v-text-field>
-                  <v-text-field
-                    label="Last name"
-                  ></v-text-field>
-                </v-flex>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </br>
-        <v-flex>
-          <p>Step 3: Add funds</p>
-        </v-flex>
-        <v-flex xs12 sm6 offset-sm3>
-          <v-card>
-            <v-card-text>
-              <p style="color:grey">AMOUNT TO ADD TO YOUR ACCOUNT NOW</P>
-              <v-flex>
-                <v-select
-                  light
-                  v-bind:items="recharge"
-                  v-model="a1"
-                  label=""
-                  autocomplete
-                ></v-select>
-             </v-flex>
-             <v-card color="grey lighten-2">
-               <v-card-text>
-                 <v-flex>
-                  <v-checkbox value="right" label="Turn on automatic recharging"></v-checkbox>
-                 </v-flex>
-                 <p>When your balance falls below $10.00, we will recharge your balance to $20</p>
-               </v-card-text>
-             </v-card>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn color="primary">Upgrade Account</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
+          <h1>Upgrade Account</h1>
+          <p class="mt-2 mb-0 sub-headings"><b>Step 1: </b>Verify a Caller ID</p>
+          <hr>
+          <p class="text-lg-center mt-2">You've verified 1234567890</p>
+          <p class="mt-2 mb-0 sub-headings"><b>Step 2: </b>Enter your Payment information</p>
+          <hr>
+          <v-layout row wrap>
+            <v-flex lg3>
+              <v-subheader v-text="'METHOD'"></v-subheader>
+            </v-flex>
+            <v-flex lg9>
+              <v-radio-group row>
+                <v-radio label="CREDIT CARD" value="Credit Card" ></v-radio>
+                <v-radio label="PAYPAL" value="PayPal"></v-radio>
+                <v-radio label="STRIPE" value="Stripe"></v-radio>
+              </v-radio-group>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex lg8 offset-lg2>
+              <v-card>
+                <v-card-text row>
+                  <v-layout row wrap>
+                    <v-flex lg12>
+                      <v-text-field
+                        label="CREDIT CARD NUMBER"
+                        placeholder="xxxx xxxx xxxx xxxx"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg2>
+                      <v-text-field
+                        label="EXPIRES"
+                        placeholder="MM"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg3 offset-lg1>
+                      <v-text-field
+                        label=""
+                        placeholder="YYYY"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg2 offset-lg1>
+                      <v-text-field
+                        label="CVV"
+                         placeholder="***"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg12>
+                      <v-text-field
+                        label="CARD HOLDER NAME"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg7>
+                      <v-text-field
+                        label="STREET ADDRESS"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg4 offset-lg1>
+                      <v-text-field
+                        label="ZIP CODE"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg12>
+                      <v-select
+                        light
+                        v-bind:items="country"
+                        label="COUNTRY"
+                        autocomplete
+                      ></v-select>
+                    </v-flex>
+                    <v-flex lg7>
+                      <v-text-field
+                        label="COMPANY/PROJECT URL"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex lg4 offset-lg1>
+                      <v-text-field
+                        label="PHONE NUMBER"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+
         </v-container>
       </template>
     </v-app>
@@ -94,8 +121,8 @@
       data() {
         return {
           al: null,
+          country: ['India','USA','England'],
           recharge: ["$10", "$20", "$30", "$40", "$50"]
-
         }
       }
     })
